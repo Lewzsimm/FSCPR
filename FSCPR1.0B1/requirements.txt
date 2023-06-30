@@ -1,0 +1,8 @@
+cs50==9.2.2
+Flask==2.0.3
+Flask-Session==0.4.0
+systemd-python==234
+python-dateutil==2.8.1
+SQLAlchemy==1.4.39
+Werkzeug==2.0.3
+Tempita==0.5.2

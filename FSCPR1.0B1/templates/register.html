@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block nav %}
+<div id="nav_container_for_burger">
+    <div class="nav_box_img">
+    </div>
+    
+      <div class="nav_box_txt">
+    <p id="titleTextBox"><strong class="topHead">Food Storage</strong><br><strong class="topHead2"><span class="cpr">C</span>heck><span class="cpr">P</span>repare><span class="cpr">R</span>otate</strong></p>
+      </div>
+  
+  <div class="burger__box">
+      <button class="burger__nav_toggle">
+      <img class="burger__logo" src="/static/burger.png"></i>          
+      </button>           
+      
+  </div><!--End Nav Container-->
+  </div><!--End burger_box-->
+  
+      <div class="burger__links--box">
+          <a href="/admin_page"><button class="burger__links--btn" type="button">Back</button></a>
+      </div>
+{% endblock %}
+
+{% block main %}
+<h1 class="table__h1--admin">Register New User</h1>
+<form action="/register" method="post">
+    <div class="log_fields">
+        <input autocomplete="off" id="username" name="username" placeholder="Username" type="text" required>
+    </div>
+    <div class="log_fields">
+        <input class="" id="password" name="password" placeholder="Password" type="password" required>
+    </div>
+    <div class="log_fields">
+        <input class="" id="confirmation" name="confirmation" placeholder="Confimation" type="password" required>
+    </div>
+    <div class="login_button">
+        <button class="loginButton" type="submit">Register</button>
+    </div>
+</form>
+
+{% endblock %}
+
+{% block js %}
+<script src="/static/script_burger.js" async></script>
+{% endblock %}

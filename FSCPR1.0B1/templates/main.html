@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block nav %}
+<div id="nav_container">
+  <div class="nav_box_img nav_box_img_small">
+  </div>
+  
+  <div class="nav_box_txt">
+  <p id="titleTextBox"><strong class="topHead">Food Storage</strong><br><strong class="topHead2"><span class="cpr">C</span>heck><span class="cpr">P</span>repare><span class="cpr">R</span>otate</strong></p>
+  </div>
+</div><!--End Nav Container-->
+{% endblock %}
+
+
+{% block main %}
+<div id="main_container">
+  <div class="main_menubox" id="main_dry">
+    <p class="main_p">Dry</p>
+    <a href="/dry"><button id="dry_button" class="main_button" type="button"></button></a>
+  </div>
+
+  <div class="main_menubox" id="main_cooler">
+    <p class="main_p">Cooler</p>
+    <a href="/cooler"><button id="cooler_button" class="main_button" type="button"></button></a>
+  </div>
+
+  <div class="main_menubox" id="main_freezer">
+    <p class="main_p">Freezer</p>
+    <a href="/freezer"><button id="freezer_button" class="main_button" type="button"></button></a>
+  </div>
+
+  <div class="main_menubox" id="main_prep">
+    <p class="main_p">Prep</p>
+    <a href="/prep"><button id="prep_button" class="main_button" type="button"></button></a>
+  </div>
+
+  <div class="main_menubox" id="main_all">
+    <p class="main_p">FIFO</p>
+    <a href="/first_out"><button id="flags_button" class="main_button" type="button"></button></a>
+  </div>
+
+  {% if (session["user_id"] == 1) %} <!--Enter the ID of Admin account(s) here-->
+  <div class="main_menubox" id="main_admin_menu">
+    <p class="main_p">Admin</p>
+    <a href="/admin_page"><button id="admin_button" class="main_button" type="button"></button></a>
+  </div>
+  {% endif %}
+  
+  <div class="main_menubox" id="main_all">
+    <p class="main_p">Logout</p>
+    <a href="/logout"><button id="logout_button" class="main_button" type="button"></button></a>
+  </div>
+</div><!--End Main_container-->
+{% endblock %}

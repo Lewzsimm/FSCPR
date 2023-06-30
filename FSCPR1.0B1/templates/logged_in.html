@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Logged In
+{% endblock %}
+
+{% block nav %}
+<div id="nav_container">
+  <div class="nav_box_img nav_box_img_small {">
+  </div>
+  
+  <div class="nav_box_txt">
+  <p id="titleTextBox"><strong class="topHead">Food Storage</strong><br><strong class="topHead2"><span class="cpr">C</span>heck><span class="cpr">P</span>repare><span class="cpr">R</span>otate</strong></p>
+  </div>
+</div><!--End Nav Container-->
+{% endblock %}
+
+{% block main %}
+<div class="success" onload="timeout()"><p>Success!</p><br><p>You are now Logged In</p></div>
+
+<script type="text/javascript" class="init">
+    setTimeout(function(){
+window.location.href = "/main";
+}, 1000);
+</script>
+{% endblock %}
+
+<!--the JS is a redirect from the logged_in screen back to the index page-->

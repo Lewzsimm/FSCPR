@@ -1,0 +1,76 @@
+
+.nav_box_img {
+  align-items: center;
+  min-width: 5rem;
+  min-height: 5rem;
+  margin: 1rem, 0rem 1rem 0rem;
+}
+
+.nav_box_img_small {
+  margin-left: 2rem;
+}
+
+.topHead {
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Roboto Slab', serif;
+  text-shadow: -1px 1px 0px black, 0.5px 1.5px 0px black; 
+  margin: 0rem 0rem 0rem 0rem;
+
+}
+
+.topHead2 {
+  margin-left: 0.5rem;
+  margin-right: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  font-family: 'Bitter', cursive, serif;
+  text-shadow: -0.25px 0.25px 0.5px var(--cp_darkred);
+} 
+
+#nav_container {
+padding: 0px 0.5rem 10px 0.2rem;
+}
+
+.nav_box_txt {
+  margin: auto 0rem auto 0rem;
+}
+
+#titleTextBox {
+  margin: 0rem 1rem 1rem 0.25rem;
+  padding: 0.5rem 0rem;
+}
+
+.burger__box{
+  justify-self: center;
+  margin: 0px 1rem 0rem 0.5rem;
+}
+
+.burger__nav_toggle{
+margin-right: 2rem;
+}
+
+.main_button {
+  margin-left: 0rem;
+}
+
+.main_p {
+  font-size: 1.5rem;
+}
+
+.cooler_unit__form label {
+min-width: 19rem;
+}
+
+.freezer_unit__form label {
+min-width: 19rem;
+}
+
+.dry_unit__form label {
+min-width: 19rem;
+}
+
+.admin_unit__form label {
+min-width: 19rem;
+}

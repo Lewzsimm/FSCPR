@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ choice }}
+{% endblock %}
+
+{% block nav %}
+<div id="nav_container_for_burger">
+  <div class="nav_box_img">
+  </div>
+  
+    <div class="nav_box_txt">
+  <p id="titleTextBox"><strong class="topHead">Food Storage</strong><br><strong class="topHead2"><span class="cpr">C</span>heck><span class="cpr">P</span>repare><span class="cpr">R</span>otate</strong></p>
+    </div>
+
+<div class="burger__box">
+    <button class="burger__nav_toggle">
+    <img class="burger__logo" src="/static/burger.png"></i>          
+    </button>           
+    
+</div><!--End Nav Container-->
+</div><!--End burger_box-->
+
+    <div class="burger__links--box">
+        <a href="/main"><button class="burger__links--btn" type="button">Main</button></a> 
+        <a href="/dry"><button class="burger__links--btn" type="button">Back</button></a>
+    </div>
+{% endblock %}
+
+{% block main %}
+<h2 class="table__h2--dry">{{ choice }}:</h2>
+<form action="/dry_content_update" method="post" name="edits">
+{% for my_shelf in my_shelf %}
+
+<div class="shelf_container">
+    <h3 class="table__h3--cooler">Shelf: {{ my_shelf.shelf }}</h3>
+    <div class="items_table_dry">
+        <table>
+            <thead>
+                <tr>
+                    <th class="items_row">Shelf</th>
+                    <th class="items_row">Name</th>
+                    <th class="items_row">Brand</th>
+                    <th class="items_row">Total #Ptns</th>
+                    <th class="items_row">Production</th>
+                    <th class="items_row">New Production</th>
+                    <th class="items_row">Expiry</th>
+                    <th class="items_row">New Expiry</th>
+                    <th class="items_row">#Ptns</th>
+                    <th class="items_row">#Batches</th>
+                    <th class="items_row">#Ptns/Batch</th>
+                    <th class="items_row">Prep</th>
+                    <th class="items_row">Updated</th>
+                    <th class="items_row">User</th>
+                    <th class="items_row">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for items in items %}
+                
+                {% if items.shelf == my_shelf.shelf %}
+                <tr>
+                    <input type="hidden" name="id" value="{{ items.id }}">
+    
+                    <td class="updater"><input type="number" id="shelf_field" class="shelf_ud_dry" name="shelf" value="{{ items.shelf }}" required></td>
+                    {% if items.exp_flag == "True" %}
+                    <td class="flag__Exp--on--name">{{ items.name }}</td>
+                    {% elif items.age_flag == "True" %}
+                    <td class="flag__age--on--name">{{ items.name }}</td>
+                    {% else %}
+                    <td class="flag__nearExp--off">{{ items.name }}</td>
+                    {% endif %}
+
+                    <input type="hidden" name="name" value="{{ items.name }}">
+                    <input type="hidden" name="brand" value="{{ items.brand}}">
+
+                    <td>{{ items.brand }}</td>
+                    <td>{{ items.portions_total }}</td>
+                    <td>{{ items.production }}</td>
+                    <td><input type="date" id="production_field" class="production_ud_dry" name="production" value="{{ items.production }}"></td>
+                    {% if items.exp_flag == "True" %}
+                    <td class="flag__Exp--on">{{ items.expiry }}</td>
+                    {% elif items.age_flag == "True" %}
+                    <td class="flag__age--on">{{ items.expiry }}</td>
+                    {% else %}
+                    <td class="flag__nearExp--off">{{ items.expiry }}</td>
+                    {% endif %}
+
+                    <td><input type="date" id="exp_date_field" class="exp_ud_dry" name="expiry" value="{{ items.expiry }}"></td>
+
+                    <td><input type="number" id="ptns_field" class="ptns_ud_dry" name="portions" value="{{ items.num_portions }}" min="0.0" max="5000"></td>
+                    <td><input type="text" id="batches_field" class="batches_ud_dry" name="batches" value="{{ items.num_batches }}" min="0.0" max="5000"></td>
+                    <td><input type="text" id="batch_size_field" class="batch_size_ud_dry" name="batch_size" value="{{ items.batch_size }}" min="0.0" max="5000"></td>
+
+                    {% if items.prep_flag == "on" %}
+                    <td><select class="prep_ud_dry" name="flag__prep" id="flag_on" value="on"><option value="on">On</option><option value="off">-</option></select>
+                    {% else %}
+                        <td><select class="prep_ud_dry" name="flag__prep" id="flag_off" value="off"><option value="off">-</option><option value="on">On</option></select>
+                    {% endif %}
+
+                    <td>{{ items.updated_on }}</td>
+                    <input type="hidden" id="today" name="today" value="Today">
+
+                    <td>{{ items.updated_by }}</td>
+                    <input type="hidden" id="user" name="user" value="User">
+
+                    <td><select name="delete" id="del_field" class="del_ud_dry">
+                        <option value="No"></option>
+                        <option value="yes" class="del_yes">YES</option>
+                        </select>
+                    </td>
+
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+
+<div class="shelf_container" id="add_items--container">
+    <div class="new_items_header">
+        <h3 class="table__h3--new__dry">Add Items</h3>
+        <button class="add_btn--dry" type="button">+</button>
+    </div>
+    <div class="new_items_container--top">
+        <div class="items_table_dry">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="items_row">Shelf</th>
+                        <th class="items_row">Name</th>
+                        <th class="items_row">Brand</th>
+                        <th class="items_row">Production</th>
+                        <th class="items_row">Expiry</th>
+                        <th class="items_row">#Ptns</th>
+                        <th class="items_row">#Batches</th>
+                        <th class="items_row">#Ptns/Batch</th>
+                        <th class="items_row">Prep</th>
+                        <th class="items_row">Discard</th>
+                    </tr>
+                </thead>
+        </div>
+    </div>
+            <tbody id="new_body">
+
+                <div id="new_items_container--bottom">
+                </div>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="submit_container">
+    <div class="update_submit-1">
+        <button type="submit" id="s_button" name="submit_btn" value="submit" class="update_submit-2">Submit Update</button>
+    </div>
+</div>
+</form>
+{% endblock %}
+
+{% block js %}
+<script src="/static/script_fscpr_dry.js" async></script>
+{% endblock %}

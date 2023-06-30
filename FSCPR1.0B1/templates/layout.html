@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSCPR-{% block title %}{% endblock %}</title>
+    <link href="/static/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" media="screen and (max-width: 365px)" href="/static/styles__small.css">
+    <link rel="stylesheet" media="screen and (min-width: 720px)" href="/static/styles__large.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="icon" href="/static/fscpr_favicon.png">
+</head>
+
+<body>
+    <section id="page_container">
+        <main>
+            {% block nav %}
+            
+            {% endblock %}
+            
+            {% block main %}
+            
+            {% endblock %}
+            
+            {% block bottom_nav %}
+            {% endblock %}
+        </main>
+    </seection>
+    
+</body>
+{% block js %}
+{% endblock %}
+</html>

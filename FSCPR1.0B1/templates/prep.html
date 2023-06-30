@@ -1,0 +1,252 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Prep Flags
+{% endblock %}
+
+{% block nav %}
+<div id="nav_container_for_burger">
+  <div class="nav_box_img">
+  </div>
+  
+    <div class="nav_box_txt">
+  <p id="titleTextBox"><strong class="topHead">Food Storage</strong><br><strong class="topHead2"><span class="cpr">C</span>heck><span class="cpr">P</span>repare><span class="cpr">R</span>otate</strong></p>
+    </div>
+
+<div class="burger__box">
+    <button class="burger__nav_toggle">
+    <img class="burger__logo" src="/static/burger.png"></i>          
+    </button>           
+    
+</div><!--End Nav Container-->
+</div><!--End burger_box-->
+
+    <div class="burger__links--box">
+        <a href="/main"><button class="burger__links--btn" type="button">Main</button></a>
+    </div>
+    <h1 class="table__h1--prep">Prep Flagged</h1>
+{% endblock %}
+
+{% block main %}
+
+<h3 class="table__h2--cooler">Cooler:</h3>
+{% for cooler_unit in cooler_unit %}
+<div class="shelf_container">
+    <h3 class="table__h3--cooler">Unit: {{ cooler_unit.cooler_unit }}</h3>
+    <div class="items_table">
+        <table>
+            <thead>
+                <tr>
+                    <th class="items_row">Name</th>
+                    <th class="items_row">Brand</th>
+                    <th class="items_row">#Ptns-Total</th>
+                    <th class="items_row">Production</th>
+                    <th class="items_row">Expiry</th>
+                    <th class="items_row">#Ptns</th>
+                    <th class="items_row">#Batches</th>
+                    <th class="items_row">#Ptns/Batch</th>
+                    <th class="items_row">Shelf</th>
+                    <th class="items_row">Prep</th>
+                    <th class="items_row">Updated</th>
+                    <th class="items_row">User</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cooler_items in cooler_items %}
+                
+                {% if cooler_items.cooler_unit == cooler_unit.cooler_unit %}
+                <tr>
+                    {% if cooler_items.exp_flag == "True" %}
+                    <td class="flag__Exp--on--name">{{ cooler_items.name }}</td>
+                {% elif cooler_items.age_flag == "True" %}
+                <td class="flag__age--on--name">{{ cooler_items.name }}</td>
+                {% else %}
+                <td class="flag__nearExp--off">{{ cooler_items.name }}</td>
+                {% endif %}
+
+                <td>{{ cooler_items.brand }}</td>
+                <td>{{ cooler_items.portions_total }}</td>
+                <td>{{ cooler_items.production }}</td>
+                
+                {% if cooler_items.exp_flag == "True" %}
+                <td class="flag__Exp--on">{{ cooler_items.expiry }}</td>
+                
+                {% elif cooler_items.age_flag == "True" %}
+                <td class="flag__age--on">{{ cooler_items.expiry }}</td>
+
+                {% else %}
+                <td class="flag__nearExp--off">{{ cooler_items.expiry }}</td>
+
+                {% endif %}
+                
+                <td>{{ cooler_items.num_portions }}</td>
+                <td>{{ cooler_items.num_batches }}</td>
+                <td>{{ cooler_items.batch_size }}</td>
+                <td>{{ cooler_items.shelf }}</td>
+
+                {% if cooler_items.prep_flag == "on" %}
+                    <td class="flag__prep--on"></td>
+                {% else %}
+                    <td class="flag__prep--off">-</td>
+                {% endif %}
+
+                <td>{{ cooler_items.updated_on }}</td>
+                <td>{{ cooler_items.updated_by }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+<h3 class="table__h2--freezer">Freezer:</h3>
+{% for freezer_unit in freezer_unit %}
+<div class="shelf_container">
+    <h3 class="table__h3--cooler">Unit: {{ freezer_unit.cooler_unit }}</h3>
+    <div class="items_table_freezer">
+        <table>
+            <thead>
+                <tr>
+                    <th class="items_row">Name</th>
+                    <th class="items_row">Brand</th>
+                    <th class="items_row">#Ptns-Total</th>
+                    <th class="items_row">Production</th>
+                    <th class="items_row">Expiry</th>
+                    <th class="items_row">#Ptns</th>
+                    <th class="items_row">#Batches</th>
+                    <th class="items_row">#Ptns/Batch</th>
+                    <th class="items_row">Shelf</th>
+                    <th class="items_row">Prep</th>
+                    <th class="items_row">Updated</th>
+                    <th class="items_row">User</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for freezer_items in freezer_items %}
+                
+                {% if freezer_items.cooler_unit == freezer_unit.cooler_unit %}
+                <tr>
+                    {% if freezer_items.exp_flag == "True" %}
+                    <td class="flag__Exp--on--name">{{ freezer_items.name }}</td>
+                {% elif freezer_items.age_flag == "True" %}
+                <td class="flag__age--on--name">{{ freezer_items.name }}</td>
+                {% else %}
+                <td class="flag__nearExp--off">{{ freezer_items.name }}</td>
+                {% endif %}
+
+                <td>{{ freezer_items.brand }}</td>
+                <td>{{ freezer_items.portions_total }}</td>
+                <td>{{ freezer_items.production }}</td>
+                
+                {% if freezer_items.exp_flag == "True" %}
+                <td class="flag__Exp--on">{{ freezer_items.expiry }}</td>
+                
+                {% elif freezer_items.age_flag == "True" %}
+                <td class="flag__age--on">{{ freezer_items.expiry }}</td>
+
+                {% else %}
+                <td class="flag__nearExp--off">{{ freezer_items.expiry }}</td>
+                
+                {% endif %}
+                
+                <td>{{ freezer_items.num_portions }}</td>
+                <td>{{ freezer_items.num_batches }}</td>
+                <td>{{ freezer_items.batch_size }}</td>
+                <td>{{ freezer_items.shelf }}</td>
+
+                {% if freezer_items.prep_flag == "on" %}
+                    <td class="flag__prep--on"></td>
+                {% else %}
+                    <td class="flag__prep--off">-</td>
+                {% endif %}
+
+                <td>{{ freezer_items.updated_on }}</td>
+                <td>{{ freezer_items.updated_by }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+<h3 class="table__h2--dry">Dry:</h3>
+{% for dry_unit in dry_unit %}
+<div class="shelf_container">
+    <h3 class="table__h3--cooler">Unit: {{ dry_unit.cooler_unit }}</h3>
+    <div class="items_table_dry">
+        <table>
+            <thead>
+                <tr>
+                    <th class="items_row">Name</th>
+                    <th class="items_row">Brand</th>
+                    <th class="items_row">#Ptns-Total</th>
+                    <th class="items_row">Production</th>
+                    <th class="items_row">Expiry</th>
+                    <th class="items_row">#Ptns</th>
+                    <th class="items_row">#Batches</th>
+                    <th class="items_row">#Ptns/Batch</th>
+                    <th class="items_row">Shelf</th>
+                    <th class="items_row">Prep</th>
+                    <th class="items_row">Updated</th>
+                    <th class="items_row">User</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dry_items in dry_items %}
+                
+                {% if dry_items.cooler_unit == dry_unit.cooler_unit %}
+                <tr>
+                    {% if dry_items.exp_flag == "True" %}
+                    <td class="flag__Exp--on--name">{{ dry_items.name }}</td>
+                {% elif dry_items.age_flag == "True" %}
+                <td class="flag__age--on--name">{{ dry_items.name }}</td>
+                {% else %}
+                <td class="flag__nearExp--off">{{ dry_items.name }}</td>
+                {% endif %}
+                
+                <td>{{ dry_items.brand }}</td>
+                <td>{{ dry_items.portions_total }}</td>
+                <td>{{ dry_items.production }}</td>
+                
+                {% if dry_items.exp_flag == "True" %}
+                <td class="flag__Exp--on">{{ dry_items.expiry }}</td>
+
+                {% elif dry_items.age_flag == "True" %}
+                <td class="flag__age--on">{{ dry_items.expiry }}</td>
+                
+                {% else %}
+                <td class="flag__nearExp--off">{{ dry_items.expiry }}</td>
+                
+                {% endif %}
+
+                <td>{{ dry_items.num_portions }}</td>
+                <td>{{ dry_items.num_batches }}</td>
+                <td>{{ dry_items.batch_size }}</td>
+                <td>{{ dry_items.shelf }}</td>
+
+                {% if dry_items.prep_flag == "on" %}
+                    <td class="flag__prep--on"></td>
+                {% else %}
+                    <td class="flag__prep--off">-</td>
+                {% endif %}
+
+                <td>{{ dry_items.updated_on }}</td>
+                <td>{{ dry_items.updated_by }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+{% block js %}
+<script src="/static/script_burger.js" defer></script>
+{% endblock %}

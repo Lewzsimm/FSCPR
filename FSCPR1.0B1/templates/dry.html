@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dry
+{% endblock %}
+
+{% block nav %}
+<div id="nav_container">
+  <div class="nav_box_img nav_box_img_small">
+  </div>
+  
+  <div class="nav_box_txt">
+  <p id="titleTextBox"><strong class="topHead">Food Storage</strong><br><strong class="topHead2"><span class="cpr">C</span>heck><span class="cpr">P</span>repare><span class="cpr">R</span>otate</strong></p>
+  </div>
+</div><!--End Nav Container-->
+{% endblock %}
+
+{% block main %}
+<h2 class="table__h2--dry">Select Dry:</h2>
+<div id="coolers">
+  <form action="/dry" method="POST" class="dry_unit__form">
+
+{% for cooler_unit in coolers %}
+  <input type="radio" id="{{ cooler_unit.cooler_unit }}" name="cooler_id" value="{{ cooler_unit.cooler_unit }}" class="dry_unit__radio">
+  <label for="{{ cooler_unit.cooler_unit }}">{{ cooler_unit.cooler_unit }}</label>
+  <br>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block bottom_nav %}
+<div class="arrow_btn__box">
+  <div class="cooler_arrow_btn--select">
+  <button type="submit" class="cooler_arrow_btn-r">></button>
+  </div>
+  </form>
+  <div class="cooler_arrow_btn--back">
+    <a href="/main" class="main_link_btn"><button class="cooler_arrow_btn-l" type="button" name="back"><</button></a>
+    </div>
+</div>
+{% endblock %}

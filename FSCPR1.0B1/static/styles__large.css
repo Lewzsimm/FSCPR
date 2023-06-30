@@ -1,0 +1,9 @@
+.main_button {
+  margin-left: 11rem;
+}
+
+@media screen and (orientation: landscape){
+  .main_button {
+    margin-left: 17rem;
+  } 
+}

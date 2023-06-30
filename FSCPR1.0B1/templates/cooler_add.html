@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add Cooler
+{% endblock %}
+
+{% block nav %}
+<div id="nav_container_for_burger">
+    <div class="nav_box_img">
+    </div>
+    
+      <div class="nav_box_txt">
+    <p id="titleTextBox"><strong class="topHead">Food Storage</strong><br><strong class="topHead2"><span class="cpr">C</span>heck><span class="cpr">P</span>repare><span class="cpr">R</span>otate</strong></p>
+      </div>
+  
+  <div class="burger__box">
+      <button class="burger__nav_toggle">
+      <img class="burger__logo" src="/static/burger.png"></i>          
+      </button>           
+      
+  </div><!--End Nav Container-->
+  </div><!--End burger_box-->
+  
+      <div class="burger__links--box">
+          <a href="/admin_page"><button class="burger__links--btn" type="button">Back</button></a>
+      </div>
+{% endblock %}
+
+{% block main %}
+<h2 class="table__h2--cooler">Add Cooler:</h2>
+<form action="/cooler_add" method="post">
+    <div class="log_fields">
+        <input autocomplete="off" id="unit_name" name="unit_name" placeholder="New Cooler Name" type="text" required>
+    </div>
+
+{% endblock %}
+
+{% block bottom_nav %}
+    <div class="login_button">
+        <button class="loginButton" type="submit" id="add_page--submit">Create</button>
+</form>
+
+{% endblock %}
+{% block js %}
+<script src="/static/script_burger.js" defer></script>
+{% endblock %}

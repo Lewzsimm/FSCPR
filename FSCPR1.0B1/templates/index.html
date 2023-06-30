@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block nav %}
+<div id="nav_container">
+  <div class="nav_box_img nav_box_img_small {">
+  </div>
+  
+  <div class="nav_box_txt">
+  <p id="titleTextBox"><strong class="topHead">Food Storage</strong><br><strong class="topHead2"><span class="cpr">C</span>heck><span class="cpr">P</span>repare><span class="cpr">R</span>otate</strong></p>
+  </div>
+</div><!--End Nav Container-->
+{% endblock %}
+
+{% block main %}
+<div class="company">
+<img src="../static/jondoes.png" class="company_img">
+</div>
+<div class="login_button">
+  <button type="submit" class="loginButton" onclick="window.location.href='/login';">
+    Login
+    </button>
+  </div>
+{% endblock %}
