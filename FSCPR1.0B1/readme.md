@@ -1,5 +1,5 @@
 #FSCPR - Food Service: Check, Prepare, Rotate
-#### Video Demo: <url>
+#### Video Demo: [https://youtu.be/CBqh6Csj6eI](https://youtu.be/CBqh6Csj6eI) <url>
 
 
 ##Usage:
