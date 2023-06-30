@@ -3,6 +3,7 @@ Food Service Check Prepare Rotate - Python3 SQL Flask Application
 
 #FSCPR - Food Service: Check, Prepare, Rotate
 #### Video Demo: [https://youtu.be/CBqh6Csj6eI](https://youtu.be/CBqh6Csj6eI) <url>
+(Created as my final project for Harvard's CS50X)
 
 
 ##Usage:
